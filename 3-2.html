@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Колесова 322</title>
+</head>
+<body>
+
+
+
+<BODY BACKGROUND="https://images2.alphacoders.com/674/674100.jpg">
+	<CENTER><FONT COLOR="#D2691E"><FONT SIZE="+3"><h2>ФИЛЬМ</h2>
+<h2>ГОЛОДНЫЕ ИГРЫ И ВСПЫХНЕТ ПЛАМЯ</h2></FONT>
+<FONT COLOR="#FFFFFF">
+<p>Сумев выжить на безжалостных Голодных играх, Китнисс Эвердин и Пит Мелларк возвращаются домой. <BR> Но теперь они в еще большей опасности, так как своим отказом играть по правилам на Арене бросили вызов Капитолию. <BR>По традиции следующие, юбилейные, Голодные игры должны стать особенными, и в этот раз в них участвуют только победители прошлых лет.<BR> Китнисс и Пит вынуждены вновь выйти на Арену, где будут соперничать с сильнейшими. <BR>Правила игры меняются. Арена еще опасней, масштаб еще больше, ставки еще выше!</p>
+
+		<img src="https://kino-musik.ru/img.php?aHR0cHM6Ly9pLnl0aW1nLmNvbS92aS82VVd1WkU2dHNIMC9ocWRlZmF1bHQuanBn.jpg">
+	<p>Оставьте отзыв на фильм:</p>
+	<form method="get">
+		<p>Имя : <input type="text" name="name" id="name"/></p>
+		<p>Email : <input type="text" name="email" id="email"/></p>
+		<p>Отзыв : <input type="text" name="comment" id="comment"/></p>
+		<input onclick = "ot(this.value)" type="button" value="Отправить">
+	
+</CENTER>
+</FONT>
+</form>
+	<span id = "tut"></span> 
+	<script>
+		let tek = 3;
+	window.addEventListener("load",function() {
+  var request = new XMLHttpRequest();
+  request.open('GET','com.php',true);
+  request.addEventListener('readystatechange', function() {
+    if ((request.readyState==4) && (request.status==200)) {
+      var welcome = document.getElementById('tut');
+      welcome.innerHTML = request.responseText;
+    }
+  });
+request.send();
+});
+    function ot(str) {
+      alert("Спасибо за отзыв! Успешно отправлен!");
+		if (str.length==0) {
+    document.getElementById("tut").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    xmlhttp=new XMLHttpRequest();
+  } else {  
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("tut").innerHTML=this.responseText;
+    }
+
+  }
+  tek+=1;
+  var nam = document.getElementById("name").value, email = document.getElementById("email").value, comment=document.getElementById("comment").value;
+var variables = "tek="+tek+"&name="+nam+"&email="+email+"&comment="+comment;
+			   xmlhttp.open("GET","comm.php?"+variables,true);
+			   xmlhttp.send();
+}
+</script>
+
+</body>
+</html> 
